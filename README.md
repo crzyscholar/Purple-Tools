@@ -17,7 +17,7 @@ tried to get [reflectiveShellcode.ps1](https://github.com/crzyscholar/Purple-Too
 tried to fix [secondreflect.ps1](https://github.com/crzyscholar/Purple-Tools/blob/main/thirdreflect.ps1) unsuccessfully 
 
 ### bypassAMSI.ps1
-Turla used a similar powershell script to bypass Microsoft Antimalware Scan Interface(AMSI)
+Turla used a similar powershell script to bypass Microsoft Antimalware Scan Interface(AMSI). which doesn't work.
 
 ### wmiSubscription.ps1
 this is one of the persistence techniques used by turla. $maliciousCommand being the powershell one-liner.
